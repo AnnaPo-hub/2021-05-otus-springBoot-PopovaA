@@ -1,17 +1,24 @@
 package ru.otus.springboot.springBootHomework.utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Locale;
 
 @Configuration("results")
 public class QuestionnaireResults {
 
+    @Autowired
+    private MessageSource messageSource;
+
     public boolean showResults(String user, int correctReplyQuantity) {
         final int passed = 3;
         if (correctReplyQuantity >= passed) {
-            System.out.println("Dear " + user + " Congratulations!You have passed the test!");
+            System.out.println(user + ", " + messageSource.getMessage("positiveResult",null, Locale.forLanguageTag("ru-RU")));
             return true;
         } else {
-            System.out.println("Dear " + user + ", " + " You have not passed the test. Invite your friends and watch the Lord of the Rings trilogy again.");
+            System.out.println( user + ", " + messageSource.getMessage("negativeResult",null, Locale.forLanguageTag("ru-RU")));
             return false;
         }
     }

@@ -12,6 +12,7 @@ public class AppConfigs {
 
         var source = new ResourceBundleMessageSource();
         source.setBasenames("messages");
+        source.setDefaultEncoding("UTF-8");
         source.setUseCodeAsDefaultMessage(true);
 
         return source;
