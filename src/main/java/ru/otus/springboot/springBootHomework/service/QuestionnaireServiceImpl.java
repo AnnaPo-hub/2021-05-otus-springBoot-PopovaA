@@ -15,13 +15,12 @@ import java.io.FileNotFoundException;
 //@PropertySource("classpath:application.properties")
 public class QuestionnaireServiceImpl implements QuestionnaireService {
 
-    @Autowired
-    private AppConfig appConfig;
-
     private final Greeting greeting;
     private final QuestionShow questionShow;
     private final QuestionnaireResults questionnaireResults;
     private final QuestionDao questionDao;
+    @Autowired
+    private AppConfig appConfig;
 
     public QuestionnaireServiceImpl(@Qualifier("askUserName") Greeting greeting,
                                     @Qualifier("questionShow") QuestionShow questionShow,

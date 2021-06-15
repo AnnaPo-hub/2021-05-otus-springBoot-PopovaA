@@ -10,7 +10,6 @@ import java.io.FileNotFoundException;
 @SpringBootApplication
 public class SpringBootHomeworkApplication {
     public static void main(String[] args) throws FileNotFoundException {
-        SpringApplication.run(SpringBootHomeworkApplication.class, args);
         ApplicationContext ctx = SpringApplication.run(SpringBootHomeworkApplication.class);
         QuestionnaireService service = ctx.getBean(QuestionnaireService.class);
         service.startQuestionnaire();
