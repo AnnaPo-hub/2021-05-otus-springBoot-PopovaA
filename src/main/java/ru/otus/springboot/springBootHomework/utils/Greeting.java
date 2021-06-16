@@ -12,8 +12,6 @@ public class Greeting {
     @Autowired
     MessageSource messageSource;
 
-    //private final String greeting = "Hello! Please enter your name and surname";
-
     public String askUserName() {
         System.out.println(messageSource.getMessage("greeting", null,  Locale.forLanguageTag("ru-RU")));
         Scanner scan = new Scanner(System.in);
