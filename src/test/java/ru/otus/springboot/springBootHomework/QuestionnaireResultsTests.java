@@ -11,20 +11,19 @@ import ru.otus.springboot.springBootHomework.utils.QuestionnaireResults;
 @SpringBootTest(classes = {QuestionnaireResults.class, AppConfigs.class})
 class QuestionnaireResultsTests {
 
-	@Autowired
-	private QuestionnaireResults questionnaireResults;
+    @Autowired
+    private QuestionnaireResults questionnaireResults;
 
-	@Autowired
-	private MessageSource messageSource;
+    @Autowired
+    private MessageSource messageSource;
 
-	@Test
-	void shouldCheckNegativeResult() {
-		Assertions.assertFalse(	questionnaireResults.showResults("Иван Иванов", 1));
-	}
+    @Test
+    void shouldCheckNegativeResult() {
+        Assertions.assertFalse(questionnaireResults.showResults("Иван Иванов", 1));
+    }
 
-	@Test
-	void shouldCheckPositiveResult() {
-		Assertions.assertTrue(	questionnaireResults.showResults("Иван Иванов", 5));
-	}
-
+    @Test
+    void shouldCheckPositiveResult() {
+        Assertions.assertTrue(questionnaireResults.showResults("Иван Иванов", 5));
+    }
 }

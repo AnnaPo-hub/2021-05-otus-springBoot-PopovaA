@@ -11,20 +11,11 @@ import java.io.FileNotFoundException;
 @SpringBootTest(classes = QuestionDaoSimple.class)
 class SpringBootHomeworkApplicationTests {
 
-//	@Autowired
-//	QuestionnaireResults questionnaireResults;
-
 	@Autowired
 	private QuestionDaoSimple questionDaoSimple;
 
-//	@Autowired
-//	private MessageSource messageSource;
-
 	@Test
 	void contextLoads() throws FileNotFoundException {
-		//Assertions.assertFalse(	questionnaireResults.showResults("Ivan Ivanov", 1));
-
 		Assertions.assertEquals(5, questionDaoSimple.getQuestionsFromFile("target/classes/questionnaire.csv").size());
 	}
-
 }
