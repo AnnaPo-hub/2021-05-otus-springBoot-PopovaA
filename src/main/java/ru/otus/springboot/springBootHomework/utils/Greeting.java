@@ -2,12 +2,12 @@ package ru.otus.springboot.springBootHomework.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 
 import java.util.Locale;
 import java.util.Scanner;
 
-@Configuration
+@Service
 public class Greeting {
     @Autowired
     MessageSource messageSource;

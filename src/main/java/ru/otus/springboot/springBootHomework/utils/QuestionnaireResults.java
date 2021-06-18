@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Locale;
+
 @Configuration
 public class QuestionnaireResults {
 
@@ -17,8 +19,10 @@ public class QuestionnaireResults {
 
     public String showResults(String user, boolean results) {
         if (results) {
-            return "Dear " + user + ", congratulations!You have passed the test!";
-        } else
-            return "Dear " + user + ", you have not passed the test. Invite your friends and watch the Lord of the Rings trilogy again.";
+            return user + ", " + messageSource.getMessage("positiveResult", null, Locale.forLanguageTag("ru-RU"));
+
+        } else {
+            return user + ", " + messageSource.getMessage("negativeResult", null, Locale.forLanguageTag("ru-RU"));
+        }
     }
 }
