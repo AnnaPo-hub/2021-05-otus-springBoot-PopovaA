@@ -4,22 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Locale;
-
-@Configuration("results")
+@Configuration
 public class QuestionnaireResults {
 
     @Autowired
     private MessageSource messageSource;
 
-    public boolean showResults(String user, int correctReplyQuantity) {
+    public boolean checkResults(int correctReplyQuantity) {
         final int passed = 3;
-        if (correctReplyQuantity >= passed) {
-            System.out.println(user + ", " + messageSource.getMessage("positiveResult",null, Locale.forLanguageTag("ru-RU")));
-            return true;
-        } else {
-            System.out.println( user + ", " + messageSource.getMessage("negativeResult",null, Locale.forLanguageTag("ru-RU")));
-            return false;
-        }
+        return correctReplyQuantity >= passed;
+    }
+
+    public String showResults(String user, boolean results) {
+        if (results) {
+            return "Dear " + user + ", congratulations!You have passed the test!";
+        } else
+            return "Dear " + user + ", you have not passed the test. Invite your friends and watch the Lord of the Rings trilogy again.";
     }
 }

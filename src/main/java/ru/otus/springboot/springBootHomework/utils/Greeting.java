@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Locale;
 import java.util.Scanner;
 
-@Configuration("askUserName")
+@Configuration
 public class Greeting {
     @Autowired
     MessageSource messageSource;

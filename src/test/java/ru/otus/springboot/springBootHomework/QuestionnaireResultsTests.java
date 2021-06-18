@@ -19,11 +19,11 @@ class QuestionnaireResultsTests {
 
     @Test
     void shouldCheckNegativeResult() {
-        Assertions.assertFalse(questionnaireResults.showResults("Иван Иванов", 1));
+        Assertions.assertFalse(questionnaireResults.checkResults( 1));
     }
 
     @Test
     void shouldCheckPositiveResult() {
-        Assertions.assertTrue(questionnaireResults.showResults("Иван Иванов", 5));
+        Assertions.assertTrue(questionnaireResults.checkResults( 5));
     }
 }
