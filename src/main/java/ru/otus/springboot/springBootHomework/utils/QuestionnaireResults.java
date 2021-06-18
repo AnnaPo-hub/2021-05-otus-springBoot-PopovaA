@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Locale;
 
-@Configuration("results")
+@Configuration
 public class QuestionnaireResults {
 
     @Autowired

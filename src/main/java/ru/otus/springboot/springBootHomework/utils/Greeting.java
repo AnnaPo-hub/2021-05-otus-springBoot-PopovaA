@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.Locale;
 import java.util.Scanner;
 
-@Service("askUserName")
+@Service
 public class Greeting {
     @Autowired
     MessageSource messageSource;

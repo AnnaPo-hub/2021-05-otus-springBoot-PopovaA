@@ -1,7 +1,6 @@
 package ru.otus.springboot.springBootHomework.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import ru.otus.springboot.springBootHomework.dao.QuestionDao;
@@ -24,10 +23,10 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     private MessageSource messageSource;
 
 
-    public QuestionnaireServiceImpl(@Qualifier("askUserName") Greeting greeting,
-                                    @Qualifier("questionShow") QuestionShow questionShow,
-                                    @Qualifier("results") QuestionnaireResults questionnaireResults,
-                                    @Qualifier("questionDao") QuestionDao questionDao) {
+    public QuestionnaireServiceImpl(Greeting greeting,
+                                    QuestionShow questionShow,
+                                    QuestionnaireResults questionnaireResults,
+                                    QuestionDao questionDao) {
         this.greeting = greeting;
         this.questionShow = questionShow;
         this.questionnaireResults = questionnaireResults;
