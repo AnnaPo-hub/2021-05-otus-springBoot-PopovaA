@@ -35,7 +35,8 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 
     public void startQuestionnaire() throws FileNotFoundException {
         String userName = greeting.askUserName();
-        boolean results = questionnaireResults.checkResults(questionShow.showQuestion(questionDao.getQuestionsFromFile(messageSource.getMessage("pathToQuestion", null, Locale.forLanguageTag("ru-Ru")))));
+        boolean results = questionnaireResults.checkResults(questionShow.
+                showQuestion(questionDao.getQuestionsFromFile(messageSource.getMessage("pathToQuestion", null, Locale.forLanguageTag("ru-Ru")))));
         System.out.println(questionnaireResults.showResults(userName, results));
     }
 }

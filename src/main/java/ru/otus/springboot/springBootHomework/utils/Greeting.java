@@ -13,7 +13,7 @@ public class Greeting {
     MessageSource messageSource;
 
     public String askUserName() {
-        System.out.println(messageSource.getMessage("greeting", null,  Locale.forLanguageTag("ru-RU")));
+        System.out.println(messageSource.getMessage("greeting", null, Locale.forLanguageTag("ru-RU")));
         Scanner scan = new Scanner(System.in);
         return scan.nextLine();
     }
