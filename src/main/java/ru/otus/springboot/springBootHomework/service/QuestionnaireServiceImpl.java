@@ -24,7 +24,6 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     private MessageSource messageSource;
 
 
-
     public QuestionnaireServiceImpl(@Qualifier("askUserName") Greeting greeting,
                                     @Qualifier("questionShow") QuestionShow questionShow,
                                     @Qualifier("results") QuestionnaireResults questionnaireResults,
@@ -36,7 +35,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     }
 
     public void startQuestionnaire() throws FileNotFoundException {
-        questionnaireResults.showResults(greeting.askUserName(),
-                questionShow.showQuestion(questionDao.getQuestionsFromFile(messageSource.getMessage("pathToQuestion", null,  Locale.forLanguageTag("ru-Ru")))));
+        questionnaireResults.showResults(
+                questionShow.showQuestion(questionDao.getQuestionsFromFile(messageSource.getMessage("pathToQuestion", null, Locale.forLanguageTag("ru-Ru")))));
     }
 }

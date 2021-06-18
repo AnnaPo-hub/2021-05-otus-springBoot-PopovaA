@@ -12,13 +12,13 @@ public class QuestionnaireResults {
     @Autowired
     private MessageSource messageSource;
 
-    public boolean showResults(String user, int correctReplyQuantity) {
+    public boolean showResults(int correctReplyQuantity) {
         final int passed = 3;
         if (correctReplyQuantity >= passed) {
-            System.out.println(user + ", " + messageSource.getMessage("positiveResult",null, Locale.forLanguageTag("ru-RU")));
+            System.out.println(messageSource.getMessage("positiveResult", null, Locale.forLanguageTag("ru-RU")));
             return true;
         } else {
-            System.out.println( user + ", " + messageSource.getMessage("negativeResult",null, Locale.forLanguageTag("ru-RU")));
+            System.out.println(messageSource.getMessage("negativeResult", null, Locale.forLanguageTag("ru-RU")));
             return false;
         }
     }
