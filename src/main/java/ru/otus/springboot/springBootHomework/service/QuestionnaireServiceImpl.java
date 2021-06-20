@@ -1,7 +1,9 @@
 package ru.otus.springboot.springBootHomework.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import ru.otus.springboot.springBootHomework.dao.QuestionDao;
 import ru.otus.springboot.springBootHomework.utils.Greeting;
@@ -12,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.util.Locale;
 
 @Service
+@PropertySource("classpath:app.properties")
 public class QuestionnaireServiceImpl implements QuestionnaireService {
 
     private final Greeting greeting;
@@ -21,6 +24,9 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 
     @Autowired
     private MessageSource messageSource;
+
+    @Value("${locale}")
+    private String locale;
 
 
     public QuestionnaireServiceImpl(Greeting greeting,
@@ -35,7 +41,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     }
 
     public void startQuestionnaire() throws FileNotFoundException {
-        String pathToFile = messageSource.getMessage("pathToQuestion", null, Locale.forLanguageTag("ru-Ru"));
+        String pathToFile = messageSource.getMessage("pathToQuestion", null, Locale.forLanguageTag(locale));
         String userName = greeting.askUserName();
         boolean results = questionnaireResults.checkResults(questionShow.
                 showQuestion(questionDao.getQuestionsFromFile(pathToFile)));

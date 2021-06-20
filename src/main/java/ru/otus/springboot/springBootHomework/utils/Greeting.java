@@ -1,6 +1,7 @@
 package ru.otus.springboot.springBootHomework.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,11 @@ public class Greeting {
     @Autowired
     MessageSource messageSource;
 
+    @Value("${locale}")
+    private String locale;
+
     public String askUserName() {
-        System.out.println(messageSource.getMessage("greeting", null, Locale.forLanguageTag("ru-RU")));
+        System.out.println(messageSource.getMessage("greeting", null, Locale.forLanguageTag(locale)));
         Scanner scan = new Scanner(System.in);
         return scan.nextLine();
     }
