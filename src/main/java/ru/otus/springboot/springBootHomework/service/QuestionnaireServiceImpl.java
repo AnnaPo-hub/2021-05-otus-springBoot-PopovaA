@@ -26,17 +26,19 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     public QuestionnaireServiceImpl(Greeting greeting,
                                     QuestionShow questionShow,
                                     QuestionnaireResults questionnaireResults,
-                                    QuestionDao questionDao) {
+                                    QuestionDao questionDao, MessageSource messageSource) {
         this.greeting = greeting;
         this.questionShow = questionShow;
         this.questionnaireResults = questionnaireResults;
         this.questionDao = questionDao;
+        this.messageSource = messageSource;
     }
 
     public void startQuestionnaire() throws FileNotFoundException {
+        String pathToFile = messageSource.getMessage("pathToQuestion", null, Locale.forLanguageTag("ru-Ru"));
         String userName = greeting.askUserName();
         boolean results = questionnaireResults.checkResults(questionShow.
-                showQuestion(questionDao.getQuestionsFromFile(messageSource.getMessage("pathToQuestion", null, Locale.forLanguageTag("ru-Ru")))));
+                showQuestion(questionDao.getQuestionsFromFile(pathToFile)));
         System.out.println(questionnaireResults.showResults(userName, results));
     }
 }
