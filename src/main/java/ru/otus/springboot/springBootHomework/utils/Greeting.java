@@ -7,11 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.Locale;
 import java.util.Scanner;
 
-<<<<<<< Updated upstream
 @Service
-=======
-@Configuration
->>>>>>> Stashed changes
 public class Greeting {
     @Autowired
     MessageSource messageSource;

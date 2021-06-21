@@ -19,8 +19,8 @@ public class HelloShell {
         this.service = service;
     }
 
-    @ShellMethod("Ask the question")
-    public void askQuestions() throws FileNotFoundException {
+    @ShellMethod("Start the questionnaire")
+    public void startQuestionnaire() throws FileNotFoundException {
         service.startQuestionnaire();
     }
 
