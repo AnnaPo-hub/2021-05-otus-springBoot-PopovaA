@@ -1,2 +1,4 @@
-pathToQuestion: "target/classes/questionnaire.csv"
-
+spring:
+  messages:
+    basename: i18n/bundle
+    encoding: utf-8

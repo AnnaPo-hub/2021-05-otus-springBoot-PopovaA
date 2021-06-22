@@ -1,20 +1,17 @@
 package ru.otus.springboot.springBootHomework.utils;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Locale;
+import ru.otus.springboot.springBootHomework.service.MessageService;
 
 @Configuration
 public class QuestionnaireResults {
 
-    @Autowired
-    private MessageSource messageSource;
 
-    @Value("${locale}")
-    private String locale;
+    private final MessageService messageService;
+
+    public QuestionnaireResults(MessageService messageService) {
+        this.messageService = messageService;
+    }
 
     public boolean checkResults(int correctReplyQuantity) {
         final int passed = 3;
@@ -23,10 +20,10 @@ public class QuestionnaireResults {
 
     public String showResults(String user, boolean results) {
         if (results) {
-            return user + ", " + messageSource.getMessage("positiveResult", null, Locale.forLanguageTag(locale));
+            return user + ", " + messageService.getMessage("positiveResult");
 
         } else {
-            return user + ", " + messageSource.getMessage("negativeResult", null, Locale.forLanguageTag(locale));
+            return user + ", " + messageService.getMessage("negativeResult");
         }
     }
 }
