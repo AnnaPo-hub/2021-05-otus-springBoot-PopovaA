@@ -11,7 +11,7 @@ public class MessageService {
 
     public MessageService(MessageSource messageSource) {
         this.messageSource = messageSource;
-        this.locale = Locale.ENGLISH; //forLanguageTag("ru_Ru");
+        this.locale = Locale.forLanguageTag("ru_Ru");
     }
 
     public String getMessage(final String messageName) {
