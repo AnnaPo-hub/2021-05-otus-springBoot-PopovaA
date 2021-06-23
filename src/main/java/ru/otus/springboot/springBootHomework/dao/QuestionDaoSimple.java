@@ -1,5 +1,6 @@
 package ru.otus.springboot.springBootHomework.dao;
 
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.springframework.stereotype.Component;
 import ru.otus.springboot.springBootHomework.domain.Question;
 
@@ -12,9 +13,15 @@ import java.util.Scanner;
 @Component
 public class QuestionDaoSimple implements QuestionDao {
     @Override
-    public List<Question> getQuestionsFromFile(String path) throws FileNotFoundException {
+    public List<Question> getQuestionsFromFile(@NotNull String path) {
         List<Question> questions = new ArrayList<>();
-        Scanner scanner = new Scanner(new File(path));
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(path));
+        } catch (FileNotFoundException e) {
+            System.out.println("Pls check path to the file, the file was not found ");
+            e.printStackTrace();
+        }
         while (scanner.hasNextLine()) {
             String nextQuestion = scanner.nextLine();
             String[] parts = nextQuestion.split(", ");

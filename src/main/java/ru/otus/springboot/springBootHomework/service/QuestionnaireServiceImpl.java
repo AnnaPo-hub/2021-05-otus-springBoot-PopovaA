@@ -6,8 +6,6 @@ import ru.otus.springboot.springBootHomework.utils.Greeting;
 import ru.otus.springboot.springBootHomework.utils.QuestionShow;
 import ru.otus.springboot.springBootHomework.utils.QuestionnaireResults;
 
-import java.io.FileNotFoundException;
-
 @Service
 public class QuestionnaireServiceImpl implements QuestionnaireService {
 
@@ -28,7 +26,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
         this.messageService = messageService;
     }
 
-    public void startQuestionnaire() throws FileNotFoundException {
+    public void startQuestionnaire() {
         String pathToFile = messageService.getMessage("pathToQuestion");
         String userName = greeting.askUserName();
         boolean results = questionnaireResults.checkResults(questionShow.
