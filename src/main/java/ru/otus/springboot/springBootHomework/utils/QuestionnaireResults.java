@@ -6,7 +6,6 @@ import ru.otus.springboot.springBootHomework.service.MessageService;
 @Configuration
 public class QuestionnaireResults {
 
-
     private final MessageService messageService;
 
     public QuestionnaireResults(MessageService messageService) {

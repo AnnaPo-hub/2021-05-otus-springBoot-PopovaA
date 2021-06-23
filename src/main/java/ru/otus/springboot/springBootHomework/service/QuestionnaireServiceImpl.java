@@ -13,7 +13,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     private final QuestionShow questionShow;
     private final QuestionnaireResults questionnaireResults;
     private final QuestionDao questionDao;
-    private MessageService messageService;
+    private final MessageService messageService;
 
     public QuestionnaireServiceImpl(Greeting greeting,
                                     QuestionShow questionShow,
