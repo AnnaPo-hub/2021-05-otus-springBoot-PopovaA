@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.otus.springboot.springBootHomework.dao.QuestionDaoSimple;
 
-import java.io.FileNotFoundException;
-
 @SpringBootTest(classes = QuestionDaoSimple.class)
 class SpringBootHomeworkApplicationTests {
 
@@ -15,7 +13,7 @@ class SpringBootHomeworkApplicationTests {
 	private QuestionDaoSimple questionDaoSimple;
 
 	@Test
-	void contextLoads() throws FileNotFoundException {
+	void contextLoads() {
 		Assertions.assertEquals(5, questionDaoSimple.getQuestionsFromFile("target/classes/questionnaire.csv").size());
 	}
 }
