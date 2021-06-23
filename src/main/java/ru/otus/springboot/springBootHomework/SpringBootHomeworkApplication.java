@@ -2,14 +2,10 @@ package ru.otus.springboot.springBootHomework;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import ru.otus.springboot.springBootHomework.service.QuestionnaireService;
 
 @SpringBootApplication
 public class SpringBootHomeworkApplication {
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(SpringBootHomeworkApplication.class);
-        QuestionnaireService service = ctx.getBean(QuestionnaireService.class);
-        service.startQuestionnaire();
+       SpringApplication.run(SpringBootHomeworkApplication.class);
     }
 }

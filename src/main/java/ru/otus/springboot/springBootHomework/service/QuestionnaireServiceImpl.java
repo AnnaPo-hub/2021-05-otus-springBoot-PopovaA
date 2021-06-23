@@ -28,9 +28,8 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
     }
 
 
-    public void startQuestionnaire() {
+    public void startQuestionnaire(String userName) {
         String pathToFile = messageService.getMessage("pathToQuestion");
-        String userName = greeting.askUserName();
         boolean results = questionnaireResults.checkResults(questionShow.
                 showQuestion(questionDao.getQuestionsFromFile(pathToFile)));
         System.out.println(questionnaireResults.showResults(userName, results));

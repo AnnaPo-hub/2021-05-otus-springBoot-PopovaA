@@ -1,5 +1,5 @@
 package ru.otus.springboot.springBootHomework.service;
 
 public interface QuestionnaireService {
-    void startQuestionnaire();
+    void startQuestionnaire(String userName);
 }
